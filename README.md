@@ -12,7 +12,7 @@ SO THAT I can gauge my progress compared to my peers
 
 ## Acceptance Criteria:
 
-``md
+``` md
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
 THEN the current day is displayed at the top of the calendar
