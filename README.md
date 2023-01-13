@@ -4,7 +4,7 @@ This challenge invites you to build a timed coding quiz with multiple-choice que
 
 ## User Story:
 
-``` bash
+``` md
 AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
