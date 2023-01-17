@@ -229,6 +229,7 @@ function displayScores() {
 // Clear scoreboard
 function clearScores() {
     scoreboard.splice(0, scoreboard.length);
+    displayScores();
 }
 
 // Prompt user to enter initials for scoreboard
