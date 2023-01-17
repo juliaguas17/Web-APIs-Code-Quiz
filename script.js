@@ -203,7 +203,7 @@ answerD.addEventListener('click', function(event) {
 // Display quiz question and multiple choice responses
 function getQuizQuestion() {
     var questionDisplay = questionsArray[i];
-    console.log(JSON.stringify(questionDisplay));
+    console.log(questionDisplay.textContent);
     answerA.textContent = questionsArray[0];
     answerB.textContent = questionsArray[1];
     answerC.textContent = questionsArray[2];
