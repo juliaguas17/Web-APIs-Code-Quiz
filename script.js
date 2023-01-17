@@ -85,7 +85,7 @@ function startTimer() {
 
 // Listen for a click event on each quiz button
 answerA.addEventListener('click', function(event) {
-    event.stopPropogation();
+    event.stopPropagation();
     correctAnswer = questionsArray[i].correctAnswer;
     console.log("correctAnswer " + correctAnswer);
     //Displays response based on whether answer was correct or wrong
@@ -118,7 +118,7 @@ answerA.addEventListener('click', function(event) {
 });
 
 answerB.addEventListener('click', function(event) {
-    event.stopPropogation();
+    event.stopPropagation();
     correctAnswer = questionsArray[i].correctAnswer;
     console.log("correctAnswer " + correctAnswer);
     if (0 === correctAnswer) {
@@ -148,7 +148,7 @@ answerB.addEventListener('click', function(event) {
 });
 
 answerC.addEventListener('click', function(event) {
-    event.stopPropogation();
+    event.stopPropagation();
     correctAnswer = questionsArray[i].correctAnswer;
     console.log("correctAnswer " + correctAnswer);
     if (0 === correctAnswer) {
@@ -178,7 +178,7 @@ answerC.addEventListener('click', function(event) {
 });
 
 answerD.addEventListener('click', function(event) {
-    event.stopPropogation();
+    event.stopPropagation();
     correctAnswer = questionsArray[i].correctAnswer;
     console.log("correctAnswer " + correctAnswer);
     if (0 === correctAnswer) {
