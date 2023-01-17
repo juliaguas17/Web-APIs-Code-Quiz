@@ -19,7 +19,7 @@ var scoreboardDisplay = document.getElementById("scoreboardDisplay")
 let i = 0; //Question index
 
 // Quiz questions
-var questionsArray = [
+const questionsArray = [
 {
         question: "What is the HTML tag under which you can write the JavaScript code?",
         answers: ["A) <javascript>", "B) <scripted>", "C) <script>", "D) <js>"],
@@ -157,7 +157,7 @@ answerC.addEventListener('click', function(event) {
         timeLeft -= 5;
         document.getElementById("ansResponse").innerHTML = "Wrong!"
         setTimeout(function() {
-            document.getElementById("ansResonse").innerHTML = "";
+            document.getElementById("ansResponse").innerHTML = "";
         },
         1000
         );
@@ -187,7 +187,7 @@ answerD.addEventListener('click', function(event) {
         timeLeft -= 5;
         document.getElementById("ansResponse").innerHTML = "Wrong!"
         setTimeout(function() {
-            document.getElementById("ansResonse").innerHTML = "";
+            document.getElementById("ansResponse").innerHTML = "";
         },
         1000
         );
@@ -202,7 +202,8 @@ answerD.addEventListener('click', function(event) {
 
 // Display quiz question and multiple choice responses
 function getQuizQuestion() {
-    questionDisplay.textContent = questionsArray[i];
+    var questionDisplay = questionsArray[i];
+    console.log(JSON.stringify(questionDisplay));
     answerA.textContent = questionsArray[0];
     answerB.textContent = questionsArray[1];
     answerC.textContent = questionsArray[2];
