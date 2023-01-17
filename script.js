@@ -1,4 +1,5 @@
 // Global variables
+var startButton = document.getElementById("startButton");
 var startCountdown = false;
 var stopCountdown = true;
 var timeLeft = 60;
@@ -55,11 +56,10 @@ function getQuizQuestion() {
 }
 
 // Start button event listener
-var startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function() {
-    homeContainer.style.display = "none";
+    landingPage.style.display = "none";
     quizContainer.style.display = "block";
-    timer.style.display = "block";
+    timerDisplay.style.display = "block";
     //Display score throughout quiz
     document.getElementById("scoreContainer").style.display = "block";
     document.getElementById("score").innerHTML = score;
