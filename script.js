@@ -215,6 +215,7 @@ function displayScores() {
     document.getElementById("scoreboardDisplay").style.display = "block";
     document.getElementById("quizContainer").style.display = "none";
     document.getElementById("gameOver").style.display = "none";
+    document.getElementById("timerDisplay").style.display = "none";
 
     scoreboard_input = "";
     for (k=0; k<scoreboard.length;k++) {
@@ -227,7 +228,7 @@ function displayScores() {
 
 // Clear scoreboard
 function clearScores() {
-    scoreboard = [];
+    var scoreboard = [];
 }
 
 // Prompt user to enter initials for scoreboard
@@ -244,6 +245,7 @@ function endQuiz() {
     document.getElementById("scoreboardDisplay").style.display = "none";
     document.getElementById("ansResponse").style.display = "none";
     document.getElementById("finalScore").style.display = score;
+    refreshPage();
 }
 
 // Refresh page
@@ -257,9 +259,9 @@ function refreshPage() {
 
 // Return to home page
 function returnHome () {
-    refreshPage();
     document.getElementById("landingPage").style.display="block";
     document.getElementById("scoreboardDisplay").style.display="none";
     document.getElementById("scoreContainer").style.display = "none";
     document.getElementById("timerDisplay").style.display="none";
+    refreshPage();
 }
