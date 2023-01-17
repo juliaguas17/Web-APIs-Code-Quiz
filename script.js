@@ -127,7 +127,7 @@ answerB.addEventListener('click', function(event) {
         timeLeft -= 5;
         document.getElementById("ansResponse").innerHTML = "Wrong!"
         setTimeout(function() {
-            document.getElementById("ansResonse").innerHTML = "";
+            document.getElementById("ansResponse").innerHTML = "";
         },
         1000
         );
