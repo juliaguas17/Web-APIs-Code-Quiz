@@ -253,7 +253,7 @@ function refreshPage() {
     score = 0;
     startCountdown = false;
     stopCountdown = true;
-    time = 60;
+    timeLeft = 60;
     i=0;
 }
 
