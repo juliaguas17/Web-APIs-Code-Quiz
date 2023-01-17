@@ -228,7 +228,7 @@ function displayScores() {
 
 // Clear scoreboard
 function clearScores() {
-    scoreboard = [];
+    scoreboard.splice(0, scoreboard.length);
 }
 
 // Prompt user to enter initials for scoreboard
@@ -260,8 +260,4 @@ function refreshPage() {
 // Return to home page
 function returnHome () {
     document.getElementById("landingPage").style.display="block";
-    document.getElementById("scoreboardDisplay").style.display="none";
-    document.getElementById("scoreContainer").style.display = "none";
-    document.getElementById("timerDisplay").style.display="none";
-    refreshPage();
 }
