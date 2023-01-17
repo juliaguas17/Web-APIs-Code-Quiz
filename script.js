@@ -228,7 +228,7 @@ function displayScores() {
 
 // Clear scoreboard
 function clearScores() {
-    scoreboard.splice(0, scoreboard.length);
+    scoreboard = [];
     displayScores();
 }
 
