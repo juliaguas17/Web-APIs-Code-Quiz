@@ -55,8 +55,8 @@ function getQuizQuestion() {
 }
 
 // Start button event listener
-var start_button = document.getElementById("start_button");
-start_button.addEventListener("click", function() {
+var startButton = document.getElementById("startButton");
+startButton.addEventListener("click", function() {
     homeContainer.style.display = "none";
     quizContainer.style.display = "block";
     quizTimer.style.display = "block";
