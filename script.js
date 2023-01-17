@@ -59,7 +59,6 @@ startButton.addEventListener("click", function() {
     //start quiz timer and display a question
     startTimer();
     getQuizQuestion();
-    startCountdown = true;
 })
 
 // Timer function, counts down from 60 seconds
@@ -67,7 +66,7 @@ var timer = document.getElementById('timer');
 var timerId = setInterval(startTimer, 1000);
 
 function startTimer() {
-    if (timeLeft <= 0) {
+    if (timeLeft <= 0 || start_countdown == false) {
         clearTimeout(timerId);
         endQuiz();
     } else {
@@ -202,7 +201,7 @@ answerD.addEventListener('click', function(event) {
 
 // Display quiz question and multiple choice responses
 function getQuizQuestion() {
-    questionDisplay.innerText = questionsArray[i].questionDisplay;
+    questionDisplay.innerText = questionsArray[i];
     answerA.innerText = questionsArray[0];
     answerB.innerText = questionsArray[1];
     answerC.innerText = questionsArray[2];
@@ -225,27 +224,16 @@ function displayScores() {
     refreshPage();
 }
 
-// Clear scoreboard
-function clearScores() {
-    scoreboard = [];
-    displayScores();
-}
-
 // Prompt user to enter initials for scoreboard
 function enterScore() {
     scoreboard.push(document.getElementById("initials").value + " " + score);
     displayScores();
 }
 
-//End quiz
-function endQuiz() {
-    document.getElementById("gameOver").style.display = "block";
-    document.getElementById("quizContainer").style.display = "none";
-    document.getElementById("timerDisplay").style.display = "none";
-    document.getElementById("scoreboardDisplay").style.display = "none";
-    document.getElementById("ansResponse").style.display = "none";
-    document.getElementById("score").style.display = score;
-    refreshPage();
+// Clear scoreboard
+function clearScores() {
+    scoreboard = [];
+    displayScores();
 }
 
 // Refresh page
@@ -257,7 +245,24 @@ function refreshPage() {
     i=0;
 }
 
+//End quiz
+function endQuiz() {
+    refreshPage();
+    document.getElementById("gameOver").style.display = "block";
+    document.getElementById("quizContainer").style.display = "none";
+    document.getElementById("timerDisplay").style.display = "none";
+    document.getElementById("scoreboardDisplay").style.display = "none";
+    document.getElementById("ansResponse").style.display = "none";
+    document.getElementById("score").style.display = score;
+}
+
 // Return to home page
 function returnHome () {
+    refreshPage();
+    document.getElementById("gameOver").style.display = "none";
     document.getElementById("landingPage").style.display="block";
+    document.getElementById("quizContainer").style.display = "none";
+    document.getElementById("timerDisplay").style.display = "none";
+    document.getElementById("scoreboardDisplay").style.display = "none";
+    document.getElementById("ansResponse").style.display = "none";
 }
