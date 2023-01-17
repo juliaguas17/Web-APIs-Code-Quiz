@@ -5,27 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Web APIs Code Quiz</title>
+    
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    
+    <title>Web APIs Code Quiz</title>
+    
   </head>
 
   <body>
-    <!--Landing page with Title and "Start Quiz" Button-->
     <header>
-    <section id="scoreboard" style="display: none">
-        <input type="button" value="View High Scores">
-    </section>
-    </header>
-    <!--Quiz takes you through 5 multiple choice questions
-    Based on user input, displays "Wrong!" or "Correct!" below subsequent question
     
-    Display timer for each question at the top right hand of screen. -->
-    <div id = "timer-display"></div>
-    <!--After questions, goes to page asking user to type in intials to save your score (accepts 3 characters)-->
+      <!--Display user's score and button to view scoreboard-->
+    <section id="scoreContainer" style="display: none">
+        <input type="button" value="View High Scores" onclick="displayScores()"></br>
+        Score: <var id = "score"></var>
+    </section>
+    
+    <!--Display timer-->
+    <section id="timerDisplay" style="display:none">
+      Time Remaining: <span id="timer"></span>
+    </section>
 
-    <!--Final page displays scoreboard
-    Displays button options to clear the score board or start the quiz again. -->
+    </header>
 
-    <script src = "script.js"></script>
+    </header>
+    <!--Landing page container with Title and "Start Quiz" Button-->
+    <container>
+      <div id="landingPage" class = "none">
+        <h1> Welcome to the Web APIs Code Quiz! </h1>
+        <p> You have 60 seconds to complete the quiz. </p>
+        <p> Press the button below when you're ready to begin...</strong> </p>
+        <br>
+        <button id="startButton">Start Quiz</button>
+      </div>
+    </container>
+
+    <!--Quiz takes you through 5 multiple choice questions-->
+    <div id="quizContainer" style="display:none">
+      <h2 id="questionDisplay"></h2>
+      <ul>
+        <div id="answerChoices">
+            <button id="answerA"></button>
+        </div>
+        <div>
+            <button id="answerB"></button>
+        </div>
+        <div>
+            <button id="answerC"></button>
+        </div>
+        <div>
+            <button id="answerD"></button>
+        </div>
+    </ul>
+    </div>
+
   </body>
+
+  <!-- Based on user input, displays "Wrong!" or "Correct!" below subsequent question -->
+  <section id="ansResponse"></section>
+
+  <!--After questions, goes to page asking user to type in intials to save your score (accepts 3 characters)-->
+<div id = "gameOver" style="display: none">
+  <h2>Game over!</h2>
+  Final Score: <var id="finalScore"></var>
+  <br>
+  Enter your initials: <input type="text" value="initials" id="initials">
+  </br>
+  <input type="button" value="submit" id="submit_intials" onclick="enterScore()">
+</div>
+
+  <!--Final page displays scoreboard. Displays button options to clear the score board or start the quiz again. -->
+<div id="scoreboardDisplay" style="display: none">
+  <h2> High Scores </h2>
+  <div id="scoreboard">
+    <input type="button" value="Return Home" id="return_home" onclick="returnHome()">
+    <input type="button" value="Clear Scores" id="clear_scores" onclick="clearScores()">
+<script src = "script.js"></script>
+
 </html>

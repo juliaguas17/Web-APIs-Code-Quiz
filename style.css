@@ -1,0 +1,51 @@
+
+* {
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
+    max-width: 100%
+}
+
+header {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+body {
+    text-align: center;
+    margin: 0;
+}
+
+/* Give scoreboard a flexbox? */
+#scoreboard {
+    color: black;
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#scoreboard:hover {
+    color: purple;
+}
+
+#timerDisplay {
+    color: black;
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+button {
+    max-width: auto;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+    background-color: mediumorchid;
+}
+
+.container {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 50px;
+    padding: 20px;
+}
