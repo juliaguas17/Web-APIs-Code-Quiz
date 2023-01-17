@@ -202,12 +202,11 @@ answerD.addEventListener('click', function(event) {
 
 // Display quiz question and multiple choice responses
 function getQuizQuestion() {
-    var questionDisplay = questionsArray[i];
-    console.log(questionDisplay.textContent);
-    answerA.textContent = questionsArray[0];
-    answerB.textContent = questionsArray[1];
-    answerC.textContent = questionsArray[2];
-    answerD.textContent = questionsArray[3];
+    questionDisplay.innerText = questionsArray[i].questionDisplay;
+    answerA.innerText = questionsArray[0];
+    answerB.innerText = questionsArray[1];
+    answerC.innerText = questionsArray[2];
+    answerD.innerText = questionsArray[3];
 }
 
 // Display high scores
@@ -245,7 +244,7 @@ function endQuiz() {
     document.getElementById("timerDisplay").style.display = "none";
     document.getElementById("scoreboardDisplay").style.display = "none";
     document.getElementById("ansResponse").style.display = "none";
-    document.getElementById("finalScore").style.display = score;
+    document.getElementById("score").style.display = score;
     refreshPage();
 }
 
