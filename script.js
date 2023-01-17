@@ -21,39 +21,32 @@ let i = 0; //Question index
 // Quiz questions
 var questionsArray = [
 {
-        question: "Question: What is the HTML tag under which you can write the JavaScript code?",
+        question: "What is the HTML tag under which you can write the JavaScript code?",
         answers: ["A) <javascript>", "B) <scripted>", "C) <script>", "D) <js>"],
         correctAnswer: 2
 }, 
 {
-        question: "Question: What are variables used for in JavaScript Programs?",
+        question: "What are variables used for in JavaScript Programs?",
         answers: ["A) Storing numbers, dates, or other values", "B) Varying randomly", "D) Causing high-school algebra flashbacks", "D) None of the above"],
         correctAnswer: 0
 },
 {
-        question: "Question: Which method adds a new item to the end of an array and returns the new length?",
+        question: "Which method adds a new item to the end of an array and returns the new length?",
         answers: ["A) shift()", "B) return() ", "C) push() ", "D) pop()"],
         correctAnswer: 2
 }, 
 {
-        question: "Question: Which of the following can't be done with client-side JavaScript?",
-        answers: ["A) Sending a form's contents by email", "B) Validating a form", "C) Storing the form's contents to a database file on the server", "D) None of the above"],
-        correctAnswer: 2
+        question: "Which of the following can't be done with client-side JavaScript?",
+        answers: ["A) Sending a form's contents by email", "B) Storing the form's contents to a database file on the server", "C) Validating a form", "D) None of the above"],
+        correctAnswer: 3
 },
 {
-        question: "Question: Which of the following are capabilities of functions in JavaScript?",
+        question: "Which of the following are capabilities of functions in JavaScript?",
         answers: ["A) Return a value", "B) Accept parameters", "C) Accept parameters and Return a value", "D) All of the above"],
         correctAnswer: 1
 }];
 
-// Display quiz question and multiple choice responses
-function getQuizQuestion() {
-    questionDisplay.textContent = questionsArray[i];
-    answerA.textContent = questionsArray[0];
-    answerB.textContent = questionsArray[1];
-    answerC.textContent = questionsArray[2];
-    answerD.textContent = questionsArray[3];
-}
+
 
 // Start button event listener
 startButton.addEventListener("click", function() {
@@ -104,7 +97,7 @@ answerA.addEventListener('click', function(event) {
         timeLeft -= 5;
         document.getElementById("ansResponse").innerHTML = "Wrong!"
         setTimeout(function() {
-            document.getElementById("ansResonse").innerHTML = "";
+            document.getElementById("ansResponse").innerHTML = "";
         },
         1000
         );
@@ -207,6 +200,15 @@ answerD.addEventListener('click', function(event) {
     };
 });
 
+// Display quiz question and multiple choice responses
+function getQuizQuestion() {
+    questionDisplay.textContent = questionsArray[i];
+    answerA.textContent = questionsArray[0];
+    answerB.textContent = questionsArray[1];
+    answerC.textContent = questionsArray[2];
+    answerD.textContent = questionsArray[3];
+}
+
 // Display high scores
 function displayScores() {
     document.getElementById("scoreboardDisplay").style.display = "block";
@@ -238,16 +240,9 @@ function endQuiz() {
     document.getElementById("gameOver").style.display = "block";
     document.getElementById("quizContainer").style.display = "none";
     document.getElementById("timerDisplay").style.display = "none";
-    document.getElementById("scoreContainer").style.display = "none";
+    document.getElementById("scoreboardDisplay").style.display = "none";
     document.getElementById("ansResponse").style.display = "none";
     document.getElementById("finalScore").style.display = score;
-}
-
-// Return to home page
-function returnHome () {
-    document.getElementById("scoreboardDisplay").style.display="none";
-    document.getElementById("homeContainer").style.display="block";
-    refreshPage();
 }
 
 // Refresh page
@@ -257,4 +252,13 @@ function refreshPage() {
     stopCountdown = true;
     time = 60;
     i=0;
+}
+
+// Return to home page
+function returnHome () {
+    refreshPage();
+    document.getElementById("landingPage").style.display="block";
+    document.getElementById("scoreboardDisplay").style.display="none";
+    document.getElementById("scoreContainer").style.display = "none";
+    document.getElementById("timerDisplay").style.display="none";
 }
