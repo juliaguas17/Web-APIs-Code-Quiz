@@ -61,7 +61,7 @@ startButton.addEventListener("click", function() {
     quizContainer.style.display = "block";
     timerDisplay.style.display = "block";
     //Display score throughout quiz
-    document.getElementById("scoreContainer").style.display = "block";
+    document.getElementById("scoreboard").style.display = "block";
     document.getElementById("score").innerHTML = score;
     //start quiz timer and display a question
     startTimer();
