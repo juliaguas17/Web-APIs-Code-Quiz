@@ -59,7 +59,7 @@ var startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function() {
     homeContainer.style.display = "none";
     quizContainer.style.display = "block";
-    quizTimer.style.display = "block";
+    timer.style.display = "block";
     //Display score throughout quiz
     document.getElementById("scoreContainer").style.display = "block";
     document.getElementById("score").innerHTML = score;
