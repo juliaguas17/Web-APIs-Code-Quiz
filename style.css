@@ -16,7 +16,6 @@ body {
     margin: 0;
 }
 
-/* Give scoreboard a flexbox? */
 #scoreboard {
     color: black;
     float: left;

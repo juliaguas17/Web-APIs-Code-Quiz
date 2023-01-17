@@ -228,7 +228,7 @@ function displayScores() {
 
 // Clear scoreboard
 function clearScores() {
-    var scoreboard = [];
+    scoreboard = [];
 }
 
 // Prompt user to enter initials for scoreboard
