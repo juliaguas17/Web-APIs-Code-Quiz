@@ -16,38 +16,36 @@ body {
     margin: 0;
 }
 
+ul {
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+    margin: 20px;
+}
+
+h2 {
+    text-align: center;
+    justify-content: center;
+}
+
+/* High score board */
 #scoreboard {
     color: black;
-    float: center;
-    margin-top: 15px;
-    margin-left: 15px;
+    margin: 15px;
 }
 
-#scoreboard:hover {
-    color: purple;
-}
-
-#scoreboard h1 {
-    color: purple;
-    float: center;
-    margin-top: 15px;
-}
-
-#scoreboard h2 {
+/* Score during the game */
+#scoreDisplay {
     color: black;
-    float: center;
-    margin-top: 15px;
+    float: left;
+    margin-left: 10px;
 }
 
 #timerDisplay {
     color: black;
     float: right;
-    margin-top: 15px;
+    margin-top: 20px;
     margin-right: 15px;
-}
-
-#timerDisplay.hover {
-    color: purple;
 }
 
 button {
@@ -55,7 +53,7 @@ button {
     text-align: center;
     height: 50px;
     border-radius: 15px;
-    margin: 5px;
+    margin: 10px;
     color: white;
     background-color: mediumorchid;
 }

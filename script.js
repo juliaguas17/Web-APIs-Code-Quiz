@@ -6,16 +6,15 @@ var score = 0;
 var scoreboard = [];
 var scoreboard_input = "";
 var scoreboardDisplay = document.getElementById("scoreboardDisplay")
-var homeContainer =  document.getElementById("homeContainer");
+var landingPage =  document.getElementById("landingPage");
 var quizContainer = document.getElementById("quizContainer");
-var questionDisplay = document.getElementById("questionDisplay");
+var question = document.getElementById("question");
 var answerA = document.getElementById("answerA");
 var answerB = document.getElementById("answerB");
 var answerC = document.getElementById("answerC");
 var answerD = document.getElementById("answerD");
 var correctAnswer = document.getElementById("correctAnswer");
 
-let i = 0; //Question index
 
 // Quiz questions
 const questionsArray = [
@@ -45,17 +44,26 @@ const questionsArray = [
         correctAnswer: 1
 }];
 
+let i = 0; // Question index
 
+// Display quiz question and multiple choice responses
+function getQuizQuestion() {
+    question.textContent = questionsArray[i].question;
+    answerA.textContent = questionsArray[i].answers[0];
+    answerB.textContent = questionsArray[i].answers[1];
+    answerC.textContent = questionsArray[i].answers[2];
+    answerD.textContent = questionsArray[i].answers[3];
+}
 
 // Start button event listener
 startButton.addEventListener("click", function() {
     landingPage.style.display = "none";
     quizContainer.style.display = "block";
     timerDisplay.style.display = "block";
-    //Display score throughout quiz
-    document.getElementById("scoreboard").style.display = "block";
+    // Display score throughout quiz
+    document.getElementById("scoreDisplay").style.display = "block";
     document.getElementById("score").innerHTML = score;
-    //start quiz timer and display a question
+    // Start quiz timer and display a question
     startTime();
     getQuizQuestion();
 })
@@ -81,7 +89,7 @@ answerA.addEventListener('click', function(event) {
     event.stopPropagation();
     correctAnswer = questionsArray[i].correctAnswer;
     console.log("correctAnswer " + correctAnswer);
-    //Displays response based on whether answer was correct or wrong
+    // Displays response based on whether answer was correct or wrong
     if (0 === correctAnswer) {
         document.getElementById("ansResponse").innerHTML = "Correct!";
         setTimeout(function() {
@@ -89,11 +97,11 @@ answerA.addEventListener('click', function(event) {
         },
         1000
         );
-        //Update score
+        // Update score
         score++;
         document.getElementById("score").innerHTML = score;
     } else {
-        //If user answers incorrectly, subtract 5 seconds from timer
+        // If user answers incorrectly, subtract 5 seconds from timer
         timeLeft -= 5;
         document.getElementById("ansResponse").innerHTML = "Wrong!"
         setTimeout(function() {
@@ -173,7 +181,7 @@ answerC.addEventListener('click', function(event) {
 answerD.addEventListener('click', function(event) {
     event.stopPropagation();
     correctAnswer = questionsArray[i].correctAnswer;
-    console.log("correctAnswer " + correctAnswer);
+    console.log("Correct Answer: " + correctAnswer);
     if (0 === correctAnswer) {
         document.getElementById("ansResponse").innerHTML = "Correct!";
         setTimeout(function() {
@@ -200,14 +208,13 @@ answerD.addEventListener('click', function(event) {
     };
 });
 
-// Display quiz question and multiple choice responses
-function getQuizQuestion() {
-    questionDisplay.innerText = questionsArray[i];
-    answerA.innerText = questionsArray[0];
-    answerB.innerText = questionsArray[1];
-    answerC.innerText = questionsArray[2];
-    answerD.innerText = questionsArray[3];
+// Prompt user to enter initials for scoreboard
+function enterScore() {
+    scoreboard.push(document.getElementById("initials").value + "    " + score);
+    displayScores();
 }
+
+
 
 // Display high scores
 function displayScores() {
@@ -215,20 +222,15 @@ function displayScores() {
     document.getElementById("quizContainer").style.display = "none";
     document.getElementById("gameOver").style.display = "none";
     document.getElementById("timerDisplay").style.display = "none";
+    document.getElementById("scoreDisplay").style.display = "none";
 
     scoreboard_input = "";
-    for (k=0; k<scoreboard.length;k++) {
-        scoreboard_input = scoreboard_input + " " + scoreboard[k];
+    for (let j=0; j<scoreboard.length;j++) {
+        scoreboard_input = scoreboard_input + " " + scoreboard[j];
     }
 
     document.getElementById("scoreboard").innerHTML = scoreboard_input;
-}
-
-// Prompt user to enter initials for scoreboard
-function enterScore() {
-    scoreboard.push(document.getElementById("initials").value + "    " + score);
     refreshPage();
-    displayScores();
 }
 
 // Clear scoreboard
@@ -246,6 +248,7 @@ function refreshPage() {
 //End quiz
 function endQuiz() {
     document.getElementById("gameOver").style.display = "block";
+    document.getElementById("score").style.display = score;
     document.getElementById("quizContainer").style.display = "none";
     document.getElementById("timerDisplay").style.display = "none";
     document.getElementById("scoreboardDisplay").style.display = "none";
@@ -254,5 +257,10 @@ function endQuiz() {
 
 // Return to home page
 function returnHome () {
-    window.location.href="index.html";
+    document.getElementById("landingPage").style.display = "block";
+    document.getElementById("quizContainer").style.display = "none";
+    document.getElementById("timerDisplay").style.display = "none";
+    document.getElementById("scoreboardDisplay").style.display = "none";
+    document.getElementById("ansResponse").style.display = "none";
+    refreshPage();
 }

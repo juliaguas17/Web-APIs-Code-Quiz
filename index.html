@@ -16,8 +16,8 @@
     <header>
     
       <!--Display user's score and button to view scoreboard-->
-    <section id="scoreboard" style="display: none">
-        <button type="button" onclick="displayScores()">View High Scores</button>
+    <section id="scoreDisplay" style="display: none">
+        <button type="button" onclick="displayScores()"> View High Scores </button>
         Score: <var id = "score"></var>
     </section>
     
@@ -36,15 +36,15 @@
         <p> You have 60 seconds to complete the quiz. </p>
         <p> Press the button below when you're ready to begin...</strong> </p>
         <br>
-        <button id="startButton">Start Quiz</button>
+        <button id="startButton"> Start Quiz </button>
       </div>
     </container>
 
     <!--Quiz takes you through 5 multiple choice questions-->
     <div id="quizContainer" style="display:none">
-      <h2 id="questionDisplay"></h2>
+      <h2 id="question"></h2>
       <ul>
-        <div id="answerChoices">
+        <div id="answers">
             <button id="answerA"></button>
         </div>
         <div>
@@ -67,7 +67,7 @@
   <!--After questions, goes to page asking user to type in intials to save your score (accepts 3 characters)-->
 <div id = "gameOver" style="display: none">
   <h2>Game over!</h2>
-  <div>Enter your initials: <input type="text" value="---" id="initials"></div>
+  <div> Enter your initials: <input type="text" value="---" id="initials"></div>
   <br> </br>
   <button id="submit_intials" onclick="enterScore()"> Submit </button>
 </div>
@@ -75,11 +75,13 @@
   <!--Final page displays scoreboard. Displays button options to clear the score board or start the quiz again. -->
 <div id="scoreboardDisplay" style="display: none">
   <h1> High Scores </h1>
-  <div id="scoreboard">
-    <button id="return_home" onclick="returnHome()">Return Home</button>
-    <button id="clear_scores" onclick="clearScores()">Clear Scores</button>
-    </div>
+  <ul id="scoreboard"></ul>
+  <div>
+    <button id="return_home" onclick="returnHome()"> Return Home </button>
+    <button id="clear_scores" onclick="clearScores()"> Clear Scores </button>
+  </div>
 </div>
+
 <script src = "script.js"></script>
 
 </html>
