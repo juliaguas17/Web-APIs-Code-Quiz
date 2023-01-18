@@ -17,13 +17,13 @@
     
       <!--Display user's score and button to view scoreboard-->
     <section id="scoreboard" style="display: none">
-        <input type="button" value="View High Scores" onclick="displayScores()"></br>
+        <button type="button" onclick="displayScores()">View High Scores</button>
         Score: <var id = "score"></var>
     </section>
     
     <!--Display timer-->
     <section id="timerDisplay" style="display:none">
-      Time Remaining: <span id="timer"></span>
+      Seconds Remaining: <span id="timer"></span>
     </section>
 
     </header>
@@ -31,7 +31,7 @@
     </header>
     <!--Landing page container with Title and "Start Quiz" Button-->
     <container>
-      <div id="landingPage" class = "none">
+      <div id="landingPage" class="none">
         <h1> Welcome to the Web APIs Code Quiz! </h1>
         <p> You have 60 seconds to complete the quiz. </p>
         <p> Press the button below when you're ready to begin...</strong> </p>
@@ -67,19 +67,16 @@
   <!--After questions, goes to page asking user to type in intials to save your score (accepts 3 characters)-->
 <div id = "gameOver" style="display: none">
   <h2>Game over!</h2>
-  Final Score: <span id="score"></span>
-  <br>
-  Enter your initials: <input type="text" value="initials" id="initials">
-  </br>
-  <input type="button" value="submit" id="submit_intials" onclick="enterScore()">
+  <div>Enter your initials: <input type="text" value="---" id="initials"></div>
+  <button id="submit_intials" onclick="enterScore()">Submit</button>
 </div>
 
   <!--Final page displays scoreboard. Displays button options to clear the score board or start the quiz again. -->
 <div id="scoreboardDisplay" style="display: none">
   <h2> High Scores </h2>
   <div id="scoreboard">
-    <input type="button" value="Return Home" id="return_home" onclick="returnHome()">
-    <input type="button" value="Clear Scores" id="clear_scores" onclick="clearScores()">
+    <button id="return_home" onclick="returnHome()">Return Home</button>
+    <button id="clear_scores" onclick="clearScores()">Clear Scores</button>
     </div>
 </div>
 <script src = "script.js"></script>

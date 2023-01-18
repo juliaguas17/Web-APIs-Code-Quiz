@@ -1,11 +1,11 @@
 // Global variables
 var startButton = document.getElementById("startButton");
-var startCountdown = false;
-var stopCountdown = true;
+var timer = document.getElementById('timer');
 var timeLeft = 60;
 var score = 0;
 var scoreboard = [];
 var scoreboard_input = "";
+var scoreboardDisplay = document.getElementById("scoreboardDisplay")
 var homeContainer =  document.getElementById("homeContainer");
 var quizContainer = document.getElementById("quizContainer");
 var questionDisplay = document.getElementById("questionDisplay");
@@ -14,7 +14,6 @@ var answerB = document.getElementById("answerB");
 var answerC = document.getElementById("answerC");
 var answerD = document.getElementById("answerD");
 var correctAnswer = document.getElementById("correctAnswer");
-var scoreboardDisplay = document.getElementById("scoreboardDisplay")
 
 let i = 0; //Question index
 
@@ -57,23 +56,25 @@ startButton.addEventListener("click", function() {
     document.getElementById("scoreboard").style.display = "block";
     document.getElementById("score").innerHTML = score;
     //start quiz timer and display a question
-    startTimer();
+    startTime();
     getQuizQuestion();
 })
 
 // Timer function, counts down from 60 seconds
-var timer = document.getElementById('timer');
-var timerId = setInterval(startTimer, 1000);
-
-function startTimer() {
-    if (timeLeft <= 0 || start_countdown == false) {
-        clearTimeout(timerId);
-        endQuiz();
-    } else {
-        timer.innerHTML = timeLeft;
+function startTime() {
+    var timeInterval = setInterval(function () {
+        console.log(timeLeft)
+      if (timeLeft >= 1) {
+        timer.textContent = timeLeft
         timeLeft--;
-    }
-}
+      } else {
+        timer.textContent = '';
+        console.log("Time's up!")
+        clearInterval(timeInterval);
+        endQuiz();
+      }
+    }, 1000);
+  }
 
 // Listen for a click event on each quiz button
 answerA.addEventListener('click', function(event) {
@@ -239,30 +240,21 @@ function clearScores() {
 // Refresh page
 function refreshPage() {
     score = 0;
-    startCountdown = false;
-    stopCountdown = true;
-    timeLeft = 60;
     i=0;
 }
 
 //End quiz
 function endQuiz() {
-    refreshPage();
     document.getElementById("gameOver").style.display = "block";
     document.getElementById("quizContainer").style.display = "none";
     document.getElementById("timerDisplay").style.display = "none";
     document.getElementById("scoreboardDisplay").style.display = "none";
-    document.getElementById("ansResponse").style.display = "none";
+    //document.getElementById("ansResponse").style.display = "none";
     document.getElementById("score").style.display = score;
+    refreshPage();
 }
 
 // Return to home page
 function returnHome () {
-    refreshPage();
-    document.getElementById("gameOver").style.display = "none";
-    document.getElementById("landingPage").style.display="block";
-    document.getElementById("quizContainer").style.display = "none";
-    document.getElementById("timerDisplay").style.display = "none";
-    document.getElementById("scoreboardDisplay").style.display = "none";
-    document.getElementById("ansResponse").style.display = "none";
+    window.location.href="index.html";
 }
