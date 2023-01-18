@@ -249,8 +249,7 @@ function endQuiz() {
     document.getElementById("quizContainer").style.display = "none";
     document.getElementById("timerDisplay").style.display = "none";
     document.getElementById("scoreboardDisplay").style.display = "none";
-    //document.getElementById("ansResponse").style.display = "none";
-    document.getElementById("score").style.display = score;
+    document.getElementById("ansResponse").style.display = "none";
     refreshPage();
 }
 
