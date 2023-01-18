@@ -103,6 +103,7 @@ answerA.addEventListener('click', function(event) {
         );
     }
     if (i >= questionsArray.length -1) {
+        timeLeft = 0;
         endQuiz();
     } else {
         i++;
@@ -133,6 +134,7 @@ answerB.addEventListener('click', function(event) {
         );
     }
     if (i >= questionsArray.length -1) {
+        timeLeft = 0;
         endQuiz();
     } else {
         i++;
@@ -163,6 +165,7 @@ answerC.addEventListener('click', function(event) {
         );
     }
     if (i >= questionsArray.length -1) {
+        timeLeft = 0;
         endQuiz();
     } else {
         i++;
@@ -194,6 +197,7 @@ answerD.addEventListener('click', function(event) {
     }
     if (i >= questionsArray.length -1) {
         endQuiz();
+        timeLeft = 0;
     } else {
         i++;
         getQuizQuestion();
@@ -227,7 +231,7 @@ function displayScores() {
 
 // Prompt user to enter initials for scoreboard
 function enterScore() {
-    scoreboard.push(document.getElementById("initials").value + " " + score);
+    scoreboard.push(document.getElementById("initials").value + "    " + score);
     displayScores();
 }
 

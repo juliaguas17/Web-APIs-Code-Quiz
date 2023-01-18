@@ -18,13 +18,20 @@ body {
 
 #scoreboard {
     color: black;
-    float: right;
+    text-align: center;
+    float: center;
     margin-top: 15px;
     margin-left: 15px;
 }
 
 #scoreboard:hover {
     color: purple;
+}
+
+#scoreboardDisplay {
+    color: purple;
+    float: center;
+    margin-top: 15px;
 }
 
 #timerDisplay {
