@@ -104,7 +104,6 @@ answerA.addEventListener('click', function(event) {
     }
     if (i >= questionsArray.length -1) {
         timeLeft = 0;
-        endQuiz();
     } else {
         i++;
         getQuizQuestion();
@@ -135,7 +134,6 @@ answerB.addEventListener('click', function(event) {
     }
     if (i >= questionsArray.length -1) {
         timeLeft = 0;
-        endQuiz();
     } else {
         i++;
         getQuizQuestion();
@@ -166,7 +164,6 @@ answerC.addEventListener('click', function(event) {
     }
     if (i >= questionsArray.length -1) {
         timeLeft = 0;
-        endQuiz();
     } else {
         i++;
         getQuizQuestion();
@@ -196,7 +193,6 @@ answerD.addEventListener('click', function(event) {
         );
     }
     if (i >= questionsArray.length -1) {
-        endQuiz();
         timeLeft = 0;
     } else {
         i++;
@@ -226,12 +222,12 @@ function displayScores() {
     }
 
     document.getElementById("scoreboard").innerHTML = scoreboard_input;
-    refreshPage();
 }
 
 // Prompt user to enter initials for scoreboard
 function enterScore() {
     scoreboard.push(document.getElementById("initials").value + "    " + score);
+    refreshPage();
     displayScores();
 }
 
@@ -244,7 +240,7 @@ function clearScores() {
 // Refresh page
 function refreshPage() {
     score = 0;
-    i=0;
+    i = 0;
 }
 
 //End quiz
@@ -254,7 +250,6 @@ function endQuiz() {
     document.getElementById("timerDisplay").style.display = "none";
     document.getElementById("scoreboardDisplay").style.display = "none";
     document.getElementById("ansResponse").style.display = "none";
-    refreshPage();
 }
 
 // Return to home page

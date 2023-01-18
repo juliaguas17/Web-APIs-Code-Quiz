@@ -18,7 +18,6 @@ body {
 
 #scoreboard {
     color: black;
-    text-align: center;
     float: center;
     margin-top: 15px;
     margin-left: 15px;
@@ -28,8 +27,14 @@ body {
     color: purple;
 }
 
-#scoreboardDisplay {
+#scoreboard h1 {
     color: purple;
+    float: center;
+    margin-top: 15px;
+}
+
+#scoreboard h2 {
+    color: black;
     float: center;
     margin-top: 15px;
 }
